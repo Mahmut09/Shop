@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Дробилки",
+    "thumbnail": "crusher.png",
+    "categories": []
+  },
+  {
+    "title": "Спецтехника",
+    "thumbnail": "special.png",
+    "categories": [
+      {
+        "title": "Самосвал",
+        "thumbnail": "dozer.png"
+      },
+      {
+        "title": "Экскаватор",
+        "thumbnail": "excavator.png"
+      }
+    ]
+  }
+]
