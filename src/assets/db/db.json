@@ -1,21 +1,25 @@
 [
-  {
-    "title": "Дробилки",
-    "thumbnail": "crusher.png",
-    "categories": []
-  },
-  {
-    "title": "Спецтехника",
-    "thumbnail": "special.png",
-    "categories": [
-      {
-        "title": "Самосвал",
-        "thumbnail": "dozer.png"
-      },
-      {
-        "title": "Экскаватор",
-        "thumbnail": "excavator.png"
-      }
-    ]
-  }
+    {
+        "id": 1,
+        "title": "Дробилки",
+        "thumbnail": "thumbnails/crusher.png",
+        "categories": []
+    },
+    {
+        "id": 2,
+        "title": "Спецтехника",
+        "thumbnail": "thumbnails/special.png",
+        "categories": [
+            {
+                "id": 3,
+                "title": "Самосвал",
+                "thumbnail": "thumbnails/dozer.png"
+            },
+            {
+                "id": 4,
+                "title": "Экскаватор",
+                "thumbnail": "thumbnails/excavator.png"
+            }
+        ]
+    }
 ]

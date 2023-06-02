@@ -1,0 +1,5 @@
+.menu {
+    height: 80vh;
+    width: min(15%, 200px);
+    background-color: var(--main-gray);
+}
