@@ -1,5 +1,8 @@
 .menu {
-    height: 80vh;
-    width: min(15%, 200px);
+    height: calc(100vh);
     background-color: var(--main-gray);
+    width: 15%;
+    position: sticky;
+    top: 74px;
+    left: 0;
 }

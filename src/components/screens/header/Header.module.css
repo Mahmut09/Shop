@@ -6,6 +6,9 @@
     flex-wrap: wrap;
     gap: 20px;
     padding: 10px 20px;
+    position: sticky;
+    height: 74px;
+    top: 0;
 }
 
 .logo {
