@@ -1,0 +1,22 @@
+.cart {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 30px 40px;
+    width: 85%;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 25%;
+    gap: 20px;
+}
+
+.container div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

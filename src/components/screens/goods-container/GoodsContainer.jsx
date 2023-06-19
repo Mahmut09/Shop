@@ -3,7 +3,16 @@ import GoodsCard from "../goods-card/GoodsCard";
 import Styles from "./GoodsContainer.module.css";
 import ScrollTop from "../scroll-top/ScrollTop";
 
+import { useDispatch } from "react-redux";
+
 const GoodsContainer = () => {
+
+  const dispatch = useDispatch();
+
+  const addToCart = card => {
+    dispatch({ type: "ADD_GOODS", payload: card });
+  };
+
   const [goods, setGoods] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(2);
@@ -13,6 +22,7 @@ const GoodsContainer = () => {
   const URL = "https://jsonplaceholder.typicode.com/photos?albumId=";
 
   const fetchData = async (page) => {
+
     try {
       setIsLoading(true);
       const response = await fetch(URL + page);
@@ -20,7 +30,7 @@ const GoodsContainer = () => {
       setGoods(prevData => [...prevData, ...newData]);
       setIsLoading(false);
       setPage(prevPage => prevPage + 1);
-      
+
       // if(page > 1) {
       // }
 
@@ -66,15 +76,17 @@ const GoodsContainer = () => {
       {goods.map(good => (
         <GoodsCard
           key={good.id}
+          id={good.id}
           thumbnailUrl={good.url}
           articule={good.albumId}
           title={good.title}
           price={good.id}
+          addToCart={addToCart}
         />
       ))}
       {isLoading && <div>Loading...</div>}
       {
-        !isTop && <ScrollTop/>
+        !isTop && <ScrollTop />
       }
     </div>
   );
