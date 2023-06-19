@@ -1,22 +1,27 @@
+.wrapper {
+    display: flex;
+    width: 85%;
+    padding: 30px 40px;
+}
+
+.form {
+    width: 15%;
+}
+
 .cart {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 30px 40px;
+    flex-direction: column;
+    gap: 50px;
     width: 85%;
+}
+
+.cart h2 {
+    font-size: 64px;
 }
 
 .container {
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    width: 25%;
-    gap: 20px;
-}
-
-.container div {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 50%;
+    gap: 20px;
 }

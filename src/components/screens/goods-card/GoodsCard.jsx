@@ -7,6 +7,7 @@ const GoodsCard = ({ id, thumbnailUrl, articule, title, price, addToCart }) => {
   const card = {
     id,
     title,
+    thumbnailUrl,
     price: convertedPrice,
   };
 

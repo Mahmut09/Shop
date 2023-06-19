@@ -6,7 +6,6 @@ import ScrollTop from "../scroll-top/ScrollTop";
 import { useDispatch } from "react-redux";
 
 const GoodsContainer = () => {
-
   const dispatch = useDispatch();
 
   const addToCart = card => {
@@ -21,8 +20,7 @@ const GoodsContainer = () => {
 
   const URL = "https://jsonplaceholder.typicode.com/photos?albumId=";
 
-  const fetchData = async (page) => {
-
+  const fetchData = async page => {
     try {
       setIsLoading(true);
       const response = await fetch(URL + page);
@@ -85,9 +83,7 @@ const GoodsContainer = () => {
         />
       ))}
       {isLoading && <div>Loading...</div>}
-      {
-        !isTop && <ScrollTop />
-      }
+      {!isTop && <ScrollTop />}
     </div>
   );
 };

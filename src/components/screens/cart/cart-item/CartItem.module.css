@@ -1,0 +1,60 @@
+.item {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.item img {
+    width: 94px;
+    flex: 1 1;
+} 
+
+.text {
+    flex: 3 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.2em;
+    gap: 8px;
+}
+
+.count {
+    flex: 1 1;
+    font-size: 1.5em;
+    text-align: center;
+    position: relative;
+}
+
+.count::before {
+    content: " ";
+    width: 16px;
+    height: 16px;
+    background-image: url("../../../../../public/minus.png");
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    font-size: 3em;
+    top: 50%;
+    left: 5%;
+    transform: translate(0, -50%);
+}
+
+.count::after {
+    content: " ";
+    width: 16px;
+    height: 16px;
+    background-image: url("../../../../../public/add.png");
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    font-size: 3em;
+    top: 50%;
+    right: 5%;
+    transform: translate(0, -50%);
+}
+
+.totalPrice {
+    flex: 1 1;
+    font-size: 1.5em;
+    font-weight: bold;
+}
