@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faUser } from "@fortawesome/free-regular-svg-icons";
 import { faPhone, faCartFlatbed } from "@fortawesome/free-solid-svg-icons";
 
-const Header = ({ handleSetCart }) => {
+const Header = ({ handleSetCart, handleSetLogin }) => {
     return (
         <div className={styles.header}>
             <div className={styles.logo}>
@@ -32,8 +32,8 @@ const Header = ({ handleSetCart }) => {
                     <FontAwesomeIcon icon={faCartFlatbed}/>
                     Корзина
                 </div>
-                <div className={styles.item}>
-                    <FontAwesomeIcon icon={faUser} />
+                <div className={styles.item} onClick={handleSetLogin}>
+                    <FontAwesomeIcon icon={faUser}/>
                     Войти
                 </div>
             </div>
