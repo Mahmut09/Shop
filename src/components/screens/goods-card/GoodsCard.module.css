@@ -27,6 +27,13 @@
 
 .title {
     font-size: 1.2em;
+    font-weight: 800;
+    text-transform: capitalize;
+}
+
+.description {
+    min-height: 120px;
+    font-size: 1.1em;
 }
 
 .price {

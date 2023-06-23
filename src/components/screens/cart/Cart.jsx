@@ -1,6 +1,7 @@
 import React from "react";
 import Styles from "./Cart.module.css";
 import CartItem from "./cart-item/CartItem";
+import Order from "./order/Order";
 
 import { useSelector } from "react-redux";
 
@@ -19,8 +20,6 @@ const Cart = () => {
 
     return accumulator;
   }, []);
-
-  console.log(uniqueCartItems);
 
   return (
     <div className={Styles.wrapper}>
@@ -43,9 +42,12 @@ const Cart = () => {
         <h2 className={Styles.cart}>Корзина пуста</h2>
       )}
 
-      <div className={Styles.form}>
-        <h3>Оформить заказ</h3>
-      </div>
+      {uniqueCartItems.length > 0 ? (
+        <Order className={Styles.form} cart={uniqueCartItems} />
+      ) : (
+        ""
+      )}
+      
     </div>
   );
 };

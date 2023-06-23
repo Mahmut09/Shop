@@ -14,20 +14,22 @@ const GoodsContainer = () => {
 
   const [goods, setGoods] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(10);
   const [hasMore, setHasMore] = useState(true);
   const [isTop, setIsTop] = useState(true);
 
-  const URL = "https://jsonplaceholder.typicode.com/photos?albumId=";
+  const URL = "http://127.0.0.1:5000/products/?skip=0&limit=";
+  // http://127.0.0.1:5000/products/?skip=0&limit=
 
   const fetchData = async page => {
     try {
       setIsLoading(true);
       const response = await fetch(URL + page);
       const newData = await response.json();
-      setGoods(prevData => [...prevData, ...newData]);
+      console.log(newData.products);
+      setGoods(() => [...newData.products]);
       setIsLoading(false);
-      setPage(prevPage => prevPage + 1);
+      setPage(prevPage => prevPage + 10);
 
       // if(page > 1) {
       // }
@@ -59,7 +61,7 @@ const GoodsContainer = () => {
   };
 
   useEffect(() => {
-    fetchData(1);
+    fetchData(10);
   }, []);
 
   useEffect(() => {
@@ -71,14 +73,15 @@ const GoodsContainer = () => {
 
   return (
     <div className={Styles.container}>
-      {goods.map(good => (
+      {goods.map((good, id) => (
         <GoodsCard
-          key={good.id}
-          id={good.id}
+          key={id}
+          id={id}
           thumbnailUrl={good.url}
-          articule={good.albumId}
-          title={good.title}
-          price={good.id}
+          articule={good.count}
+          title={good.name}
+          description={good.description}
+          price={good.price}
           addToCart={addToCart}
         />
       ))}
