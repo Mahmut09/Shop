@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Styles from "./Cart.module.css";
 import CartItem from "./cart-item/CartItem";
 import Order from "./order/Order";
-
-import { useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 
 const Cart = () => {
   const cart = useSelector(state => state.cart);
+  const [storedCart, setStoredCart] = useState([])
+
   const uniqueCartItems = cart.reduce((accumulator, currentItem) => {
     const existingItem = accumulator.find(
       item => item.title === currentItem.title
@@ -19,6 +20,19 @@ const Cart = () => {
     }
 
     return accumulator;
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(uniqueCartItems));
+  }, [uniqueCartItems]);
+
+  const handleSetStoredCart = () => {
+    setStoredCart(JSON.parse(localStorage.getItem("cart")));
+  }
+
+  useEffect(() => {
+    handleSetStoredCart();
+    console.log(storedCart);
   }, []);
 
   return (
@@ -47,7 +61,6 @@ const Cart = () => {
       ) : (
         ""
       )}
-      
     </div>
   );
 };

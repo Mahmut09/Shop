@@ -2,43 +2,42 @@ import React, { useEffect, useState } from "react";
 import GoodsCard from "../goods-card/GoodsCard";
 import Styles from "./GoodsContainer.module.css";
 import ScrollTop from "../scroll-top/ScrollTop";
-
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from './cartAction'
 
 const GoodsContainer = () => {
   const dispatch = useDispatch();
 
-  const addToCart = card => {
-    dispatch({ type: "ADD_GOODS", payload: card });
+  const handleAddToCart = (card) => {
+    addToCart(dispatch, card);
   };
 
   const [goods, setGoods] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false)
   const [page, setPage] = useState(10);
   const [hasMore, setHasMore] = useState(true);
   const [isTop, setIsTop] = useState(true);
 
-  const URL = "http://127.0.0.1:5000/products/?skip=0&limit=";
-  // http://127.0.0.1:5000/products/?skip=0&limit=
+  const initialPage = 10;
+  const URL = useSelector(state => state.URL);
 
-  const fetchData = async page => {
+  const fetchData = async (page) => {
     try {
-      setIsLoading(true);
-      const response = await fetch(URL + page);
+      const response = await fetch(URL + "products/?skip=0&limit=" + page);
       const newData = await response.json();
-      console.log(newData.products);
-      setGoods(() => [...newData.products]);
+      setIsLoading(true);
+      setIsError(false);
+      setGoods(() => newData.products);
       setIsLoading(false);
-      setPage(prevPage => prevPage + 10);
+      setPage(prevPage => prevPage + initialPage);
 
-      // if(page > 1) {
-      // }
+      let prevDataLength = newData.length - initialPage;
+      if (newData.length === prevDataLength) setHasMore(false)
 
-      if (newData.length === 0) {
-        setHasMore(false);
-      }
     } catch (error) {
       console.log(error, "Error");
+      setIsError(true);
       setIsLoading(false);
     }
   };
@@ -61,7 +60,7 @@ const GoodsContainer = () => {
   };
 
   useEffect(() => {
-    fetchData(10);
+    fetchData(initialPage);
   }, []);
 
   useEffect(() => {
@@ -82,10 +81,11 @@ const GoodsContainer = () => {
           title={good.name}
           description={good.description}
           price={good.price}
-          addToCart={addToCart}
+          addToCart={handleAddToCart}
         />
       ))}
       {isLoading && <div>Loading...</div>}
+      {isError && <div>Бэк не вывез простите <button onClick={() => fetchData(initialPage)}>Попробовать еще раз</button></div>}
       {!isTop && <ScrollTop />}
     </div>
   );

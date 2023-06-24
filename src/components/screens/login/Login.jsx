@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import SignUp from "./signUp/SignUp";
 import SignIn from "./signIn/SignIn";
 import Styles from "./Login.module.css";
+import { useDispatch, useSelector } from "react-redux";
 
 const Login = () => {
-  const URL = "http://127.0.0.1:5000/";
+  const dispatch = useDispatch();
+  const URL = useSelector(state => state.URL);
+  const isLogined = useSelector(state => state.isLogined);
+  console.log("Залогинен: ", isLogined);
 
-  // const endPoints = {
-  //     register: "auth/register",
-  // }
+  const setIsLogined = status => {
+    dispatch({ type: "SET_LOGINED", payload: status });
+  };
 
   const [formData, setFormData] = useState({
     email: "",
@@ -23,38 +27,44 @@ const Login = () => {
     setFormData({ ...formData, [target.name]: target.value });
   };
 
+  const handleSetRegister = () => {
+    setIsRegistred(!isRegistred);
+  };
+
   const handleSubmit = endpoint => {
     sendLoginData(formData, endpoint);
   };
 
   const sendLoginData = async (data, endpoint) => {
-    // if(!data.username) {
-    //     delete(data.username)
-    // }
-    // console.log(data);
     const headers = new Headers();
     headers.append("accept", "application/json");
 
-    endpoint === "auth/register"
-      ? headers.append("Content-Type", "application/json")
-      : headers.append("Content-Type", "application/x-www-form-urlencoded");
-
     let sendData = "";
+    let isRegistration = true;
 
-    endpoint === "auth/register"
-      ? (sendData = JSON.stringify(data))
-      : (sendData = `grant_type=&username=${data.email}&password=${data.password}&scope=&client_id=&client_secret=`);
-
-    const res = await fetch(URL + endpoint, {
-      method: "POST",
-      headers: headers,
-      body: sendData,
-    });
-    const responseJson = await res.json();
-    if (res.ok) {
-      setIsRegistred(true);
+    if (endpoint === "auth/register") {
+      headers.append("Content-Type", "application/json");
+      sendData = JSON.stringify(data);
+    } else {
+      headers.append("Content-Type", "application/x-www-form-urlencoded");
+      sendData = `grant_type=&username=${data.email}&password=${data.password}&scope=&client_id=&client_secret=`;
+      isRegistration = false;
     }
-    return responseJson;
+
+    try {
+      const res = await fetch(URL + endpoint, {
+        method: "POST",
+        headers: headers,
+        body: sendData,
+      });
+      const responseJson = await res.json();
+
+      if (res.ok) setIsRegistred(true);
+      if (!isRegistration) setIsLogined(res.ok);
+      return responseJson;
+    } catch (e) {
+      console.log("Error", e);
+    }
   };
 
   return (
@@ -63,11 +73,13 @@ const Login = () => {
         <SignIn
           handleSubmit={handleSubmit}
           handleInputChange={handleInputChange}
+          handleSetRegister={handleSetRegister}
         />
       ) : (
         <SignUp
           handleSubmit={handleSubmit}
           handleInputChange={handleInputChange}
+          handleSetRegister={handleSetRegister}
         />
       )}
     </div>

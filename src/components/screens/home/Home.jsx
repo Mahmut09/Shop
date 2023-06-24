@@ -2,56 +2,54 @@ import styles from './Home.module.css'
 import Nav from '../nav/Nav'
 import Header from '../header/Header'
 import Container from '../container/Container'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const Home = () => {
 
-  const [cartIsOpen, setCartIsOpen] = useState(false);
-  const [containerIsOpen, setContainerIsOpen] = useState(true);
-  const [loginIsOpen, setLoginIsOpen] = useState(false);
-  const [aboutIsOpen, setAboutIsOpen] = useState(false);
+  const initialState = {
+    cartIsOpen: false,
+    containerIsOpen: false,
+    loginIsOpen: false,
+    aboutIsOpen: false
+  };
 
+  const [state, setState] = useState(initialState);
+
+  useEffect(() => {
+    setState({ ...initialState, containerIsOpen: true });
+  }, [])
 
   const handleSetAbout = () => {
-    setCartIsOpen(false);
-    setContainerIsOpen(false);
-    setLoginIsOpen(false);
-    setAboutIsOpen(true);
+    setState({ ...initialState, aboutIsOpen: true });
   }
 
   const handleSetLogin = () => {
-    setCartIsOpen(false);
-    setContainerIsOpen(false);
-    setLoginIsOpen(true);
-    setAboutIsOpen(false);
+    setState({ ...initialState, loginIsOpen: true });
   }
 
   const handleSetCart = () => {
-    setContainerIsOpen(false);
-    setLoginIsOpen(false);
-    setCartIsOpen(true);
-    setAboutIsOpen(false);
+    setState({ ...initialState, cartIsOpen: true });
   }
 
   const handleSetContainer = () => {
-    setCartIsOpen(false);
-    setLoginIsOpen(false);
-    setContainerIsOpen(true);
-    setAboutIsOpen(false);
+    setState({ ...initialState, containerIsOpen: true });
   }
 
   return (
     <div className={styles.div}>
-      <Nav handleSetContainer={handleSetContainer} handleSetAbout={handleSetAbout} />
+      <Nav 
+        handleSetContainer={handleSetContainer} 
+        handleSetAbout={handleSetAbout}
+       />
       <Header 
         handleSetCart={handleSetCart}
         handleSetLogin={handleSetLogin}
       />
       {<Container
-        containerIsOpen={containerIsOpen}
-        cartIsOpen={cartIsOpen}
-        loginIsOpen={loginIsOpen}
-        aboutIsOpen={aboutIsOpen}
+        containerIsOpen={state.containerIsOpen}
+        cartIsOpen={state.cartIsOpen}
+        loginIsOpen={state.loginIsOpen}
+        aboutIsOpen={state.aboutIsOpen}
       />}
     </div>
 

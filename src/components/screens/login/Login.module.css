@@ -42,3 +42,11 @@
 .login button:hover {
     border: 2px solid #000;
 }
+
+.login span {
+    font-weight: 600;
+    color: steelblue;
+    cursor: pointer;
+    padding: 10px 0;
+    width: 40%;
+}
