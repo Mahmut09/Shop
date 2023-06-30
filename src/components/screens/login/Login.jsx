@@ -22,6 +22,10 @@ const Login = () => {
 
   const [isRegistred, setIsRegistred] = useState(false);
 
+  const setAccessToken = (token) => {
+    localStorage.setItem("accessToken", token);
+  }
+
   const handleInputChange = e => {
     const target = e.target;
     setFormData({ ...formData, [target.name]: target.value });
@@ -61,6 +65,10 @@ const Login = () => {
 
       if (res.ok) setIsRegistred(true);
       if (!isRegistration) setIsLogined(res.ok);
+      if(isLogined) {
+        setAccessToken(responseJson.access_token);
+      }
+
       return responseJson;
     } catch (e) {
       console.log("Error", e);

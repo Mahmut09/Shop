@@ -1,23 +1,25 @@
 .header {
     width: 100%;
     background-color: var(--main-gray);
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(max(300px, 15%), 1fr));
+    gap: 15px;
     position: sticky;
     height: 74px;
+    padding: 10px 0;
     top: 0;
-    z-index: 9;
+}
+
+.search {
+    grid-column: span 2;
+    width: 90%;
+    margin: auto;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: max(15%, 270px);
+    justify-content: space-around;
 }
 
 .img {
@@ -25,10 +27,6 @@
     height: 50px;
     background-color: steelblue;
     border-radius: 30px;
-}
-
-.search {
-    width: max(50%, 820px);
 }
 
 .search input {
@@ -50,8 +48,9 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    width: max(10%, 200px);
     font-size: 1.2em;
+    justify-self: left;
+    padding-left: 12px;
 }
 
 .contacts a svg {
@@ -61,7 +60,6 @@
 .menu {
     display: flex;
     justify-content: space-around;
-    width: max(15%, 200px);
 }
 
 .item {
@@ -70,4 +68,45 @@
     align-items: center;
     gap: 7px;
     font-size: 1.1em;
+}
+
+@media screen and (max-width: 1560px) {
+    .logo h1 {
+        font-size: 1.5em;
+    }
+
+    .contacts {
+        font-size: 1em;
+    }
+
+    .item {
+        font-size: 1em;
+    }
+
+    .search {
+        grid-column: span 1;
+    }
+
+    .search input {
+        background-position-x: min(3%, 5%);
+        padding-left: 13%;
+        background-size: 8%;
+    }
+}
+
+@media screen and (max-width: 1244px) {
+    .header {
+        grid-template-columns: repeat(auto-fit, minmax(max(190px, 15%), 1fr));
+        gap: 12px;
+    }
+
+    .search input {
+        padding: 10px;
+        padding-left: 15%;
+    }
+}
+@media screen and (max-width: 795px) {
+    .menu, .contacts {
+        display: none;
+    }
 }
