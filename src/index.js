@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './assets/global.css'
 import reportWebVitals from './reportWebVitals';
-import Home from './components/screens/home/Home';
+import Home from './components/home/Home';
 
 import { createStore } from 'redux'
 import { Provider } from "react-redux";

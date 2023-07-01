@@ -1,0 +1,21 @@
+.container {
+    width: 100%;
+}
+
+.container img {
+    width: 16px;
+}
+
+.item {
+    padding: 14px 12px;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 7px;
+}
+
+.item:hover {
+    background-color: var(--hover-sub-gray);
+}

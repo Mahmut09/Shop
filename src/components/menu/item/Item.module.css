@@ -1,0 +1,22 @@
+.item {
+    padding: 14px 12px;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    text-transform: capitalize;
+}
+
+.item img {
+    width: 16px;
+}
+
+.item:hover {
+    background-color: var(--hover-gray);
+}
+.item:hover .item div div {
+    background-color: var(--main-bg);
+    color: red;
+}
