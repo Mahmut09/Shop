@@ -22,35 +22,32 @@
     flex: 1 1;
     font-size: 1.5em;
     text-align: center;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.count::before {
-    content: " ";
-    width: 16px;
-    height: 16px;
+.count > span {
+    width: 18px;
+    height: 18px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    display: block;
+    transition: .3s;
+    border-radius: 100px;
+}
+
+.count > span:hover {
+    filter: drop-shadow(0px 0px 2px #6a6a6a4c);
+}
+
+.count > span:first-child {
     background-image: url("../../../../../public/minus.png");
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    font-size: 3em;
-    top: 50%;
-    left: 5%;
-    transform: translate(0, -50%);
 }
 
-.count::after {
-    content: " ";
-    width: 16px;
-    height: 16px;
+.count > span:last-child {
     background-image: url("../../../../../public/add.png");
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    font-size: 3em;
-    top: 50%;
-    right: 5%;
-    transform: translate(0, -50%);
 }
 
 .totalPrice {

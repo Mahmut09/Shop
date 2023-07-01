@@ -6,6 +6,8 @@ import ActiveMenu from '../activeMenu/ActiveMenu';
 
 const Item = ({ title, thumbnail, categories }) => {
 
+    if (!thumbnail) thumbnail = "./thumbnails/dozer.png";
+
     let activeItem = categories.length > 0 ? true : false;
     const [isOpen, setIsOpen] = useState(false);
 
@@ -19,8 +21,8 @@ const Item = ({ title, thumbnail, categories }) => {
             onClick={activeItem ? toggleMenu : null}
         >
             <img
-                src={'./' + thumbnail}
-                alt="#" />
+                src={thumbnail}
+                alt={title} />
             <span>
                 {title}
             </span>

@@ -10,7 +10,8 @@ const Home = () => {
     cartIsOpen: false,
     containerIsOpen: false,
     loginIsOpen: false,
-    aboutIsOpen: false
+    aboutIsOpen: false,
+    contactsIsOpen: false,
   };
 
   const [state, setState] = useState(initialState);
@@ -35,13 +36,19 @@ const Home = () => {
     setState({ ...initialState, containerIsOpen: true });
   }
 
+  const handleSetContacts = () => {
+    setState({ ...initialState, contactsIsOpen: true });
+  }
+
   return (
     <div className={styles.div}>
       <Nav 
         handleSetContainer={handleSetContainer} 
         handleSetAbout={handleSetAbout}
+        handleSetContacts={handleSetContacts}
        />
       <Header 
+        handleSetContainer={handleSetContainer}
         handleSetCart={handleSetCart}
         handleSetLogin={handleSetLogin}
       />
@@ -50,6 +57,7 @@ const Home = () => {
         cartIsOpen={state.cartIsOpen}
         loginIsOpen={state.loginIsOpen}
         aboutIsOpen={state.aboutIsOpen}
+        contactsIsOpen={state.contactsIsOpen}
       />}
     </div>
 

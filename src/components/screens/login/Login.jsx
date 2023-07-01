@@ -7,24 +7,18 @@ import { useDispatch, useSelector } from "react-redux";
 const Login = () => {
   const dispatch = useDispatch();
   const URL = useSelector(state => state.URL);
-  const isLogined = useSelector(state => state.isLogined);
-  console.log("Залогинен: ", isLogined);
+  const token = useSelector(state => state.accessToken);
 
-  const setIsLogined = status => {
-    dispatch({ type: "SET_LOGINED", payload: status });
+  const setIsLogined = (accessToken = "") => {
+    dispatch({ type: "SET_ACCESS_TOKEN", payload: accessToken });
   };
 
+  const [isRegistred, setIsRegistred] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     username: "",
     password: "",
   });
-
-  const [isRegistred, setIsRegistred] = useState(false);
-
-  const setAccessToken = (token) => {
-    localStorage.setItem("accessToken", token);
-  }
 
   const handleInputChange = e => {
     const target = e.target;
@@ -64,10 +58,7 @@ const Login = () => {
       const responseJson = await res.json();
 
       if (res.ok) setIsRegistred(true);
-      if (!isRegistration) setIsLogined(res.ok);
-      if(isLogined) {
-        setAccessToken(responseJson.access_token);
-      }
+      if (!isRegistration && res.ok) setIsLogined(responseJson.access_token);
 
       return responseJson;
     } catch (e) {
@@ -75,9 +66,19 @@ const Login = () => {
     }
   };
 
+  const changeAccount = () => {
+    dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
+  };
+
   return (
     <div className={Styles.login}>
-      {isRegistred ? (
+      {token ? (
+        <div>
+          Вы уже вошли в аккаунт
+          <br />
+          <button style={{width: "15%"}} onClick={changeAccount}>Сменить аккаунт</button>
+        </div>
+      ) : isRegistred ? (
         <SignIn
           handleSubmit={handleSubmit}
           handleInputChange={handleInputChange}

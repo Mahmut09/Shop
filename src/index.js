@@ -9,16 +9,17 @@ import { Provider } from "react-redux";
 
 const defaultState = {
     cart: [],
-    URL: "http://127.0.0.1:8000/",
-    isLogined: false,
+    URL: "http://127.0.0.1:8003/",
+    accessToken: localStorage.getItem("accessToken") || "",
 }
 
 const reducer = (state = defaultState, action) => {
     switch (action.type) {
         case "ADD_GOODS":
-            return { ...state, cart: [...state.cart, action.payload] }
-        case "SET_LOGINED":
-            return { ...state, isLogined: action.payload }
+            return { ...state, cart: [...state.cart, action.payload] };
+        case "SET_ACCESS_TOKEN":
+            localStorage.setItem("accessToken", action.payload)
+            return { ...state, accessToken: action.payload };
 
 
         default:

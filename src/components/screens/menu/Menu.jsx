@@ -10,21 +10,6 @@ const Menu = () => {
 
     const URL = useSelector(state => state.URL);
 
-    useEffect(() => {
-        const data = fetchData();
-        setProductСategories(data.categories);
-    }, []);
-
-    const fetchData = async () => {
-        try {
-            const response = await getData();
-            console.log(response);
-            return response;
-        } catch (error) {
-            console.log("Error:", error);
-        }
-    };
-
     const getData = async () => {
         const res = await fetch(URL + "products/category", {
             method: "GET",
@@ -33,19 +18,35 @@ const Menu = () => {
             throw new Error("Error");
         }
         return await res.json();
-    }
+    };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await getData();
+                setProductСategories(data.categories);
+            } catch (error) {
+                console.log("Error:", error);
+            }
+        };
+    
+        fetchData();
+    }, []);  
 
     return (
         <div className={Styles.menu}>
             {
+                productСategories ?
                 productСategories.map(category => (
                     <Item
                         key={category.id}
-                        title={category.title}
+                        title={category.name}
                         thumbnail={category.thumbnail}
                         categories={category.categories}
                     />
                 ))
+                :
+                "Категорий нет : ( "
             }
         </div>
     )

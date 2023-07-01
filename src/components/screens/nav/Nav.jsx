@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Nav.module.css'
 
-const Nav = ({ handleSetContainer, handleSetAbout }) => {
+const Nav = ({ handleSetContainer, handleSetAbout, handleSetContacts }) => {
 
     return (
         <div className={styles.menu}>
@@ -12,7 +12,7 @@ const Nav = ({ handleSetContainer, handleSetAbout }) => {
                 <div className={styles.item} onClick={handleSetAbout}>
                     О компании
                 </div>
-                <div className={styles.item}>
+                <div className={styles.item} onClick={handleSetContacts}>
                     Наши контакты
                 </div>
             </nav>
