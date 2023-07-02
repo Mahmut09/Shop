@@ -9,6 +9,10 @@
     cursor: pointer;
 }
 
+.cardImage {
+    width: max(200px, 100%);
+}
+
 .card img {
     width: 100%;
 }
@@ -56,4 +60,10 @@
 .btn:hover {
     background-color: var(--hover-gray);
     color: #fff;
+}
+
+@media screen and (max-width: 1456px) {
+    .btn {
+        font-size: 1em;
+    }
 }

@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import Styles from "./Cart.module.css";
 import CartItem from "./cart-item/CartItem";
 import Order from "./order/Order";
-import {  useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Cart = () => {
   // const cart = useSelector(state => state.cart);
   const [cart, setCart] = useState([]);
+  const URL = useSelector(state => state.URL);
   const accessToken = useSelector(state => state.accessToken);
-  console.log(accessToken);
+  const dispatch = useDispatch();
+
   const handleChangeCart = e => {
     const currentTarget = e.currentTarget;
     const target = e.target;
@@ -38,22 +40,25 @@ const Cart = () => {
         item => item.count > 0
       );
       setCart(localStorageCart);
-    } catch {return};
+    } catch {
+      return;
+    }
   }, []);
 
-  // const uniqueCartItems = cart.reduce((accumulator, currentItem) => {
-  //   const existingItem = accumulator.find(
-  //     item => item.title === currentItem.title
-  //   );
-
-  //   if (existingItem) {
-  //     existingItem.count += 1;
-  //   } else {
-  //     accumulator.push({ ...currentItem, count: 1 });
-  //   }
-
-  //   return accumulator;
-  // }, []);
+  useEffect(() => {
+    fetch(URL + "auth/me", {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
+      .then(res => {
+        if (!res.ok) dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
+        return res.json();
+      })
+      .then(d => {
+        console.log(d);
+      });
+  }, [cart]);
 
   return (
     <div className={Styles.wrapper}>

@@ -8,10 +8,15 @@ const Login = () => {
   const dispatch = useDispatch();
   const URL = useSelector(state => state.URL);
   const token = useSelector(state => state.accessToken);
+  const username = useSelector(state => state.username);
 
   const setIsLogined = (accessToken = "") => {
     dispatch({ type: "SET_ACCESS_TOKEN", payload: accessToken });
   };
+
+  const setUsername = (username) => {
+    dispatch({ type: "SET_USER_NAME", payload: username });
+  }
 
   const [isRegistred, setIsRegistred] = useState(false);
   const [formData, setFormData] = useState({
@@ -58,8 +63,10 @@ const Login = () => {
       const responseJson = await res.json();
 
       if (res.ok) setIsRegistred(true);
-      if (!isRegistration && res.ok) setIsLogined(responseJson.access_token);
-
+      if (!isRegistration && res.ok) {
+        setIsLogined(responseJson.access_token);
+        setUsername(data.email);
+      }
       return responseJson;
     } catch (e) {
       console.log("Error", e);
@@ -68,13 +75,14 @@ const Login = () => {
 
   const changeAccount = () => {
     dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
+    dispatch({ type: "SET_USER_NAME", payload: "" });
   };
 
   return (
     <div className={Styles.login}>
       {token ? (
         <div>
-          Вы уже вошли в аккаунт
+          Ваш аккаунт {username}
           <br />
           <button style={{width: "15%"}} onClick={changeAccount}>Сменить аккаунт</button>
         </div>

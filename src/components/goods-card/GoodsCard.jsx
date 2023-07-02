@@ -1,18 +1,19 @@
 import React from 'react'
 import Styles from './GoodsCard.module.css'
 
-const GoodsCard = ({ id, thumbnailUrl = "./no-image.png", articule, title, price, addToCart, description }) => {
+const GoodsCard = ({ id, thumbnailUrl, articule, title, price, addToCart, description }) => {
+  
   const card = {
     id,
     title,
-    thumbnailUrl,
+    thumbnailUrl: thumbnailUrl ? thumbnailUrl[0].url : "./no-image.png",
     price: price,
   };
 
   return (
     <div className={Styles.card}>
-      <div className="card-image">
-        <img src={thumbnailUrl} alt={title} />
+      <div className={Styles.cardImage}>
+        <img src={card.thumbnailUrl} alt={title} />
       </div>
       <div className={Styles.description}>
         <span className={Styles.articule}>Артикул {articule}</span>

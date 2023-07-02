@@ -3,8 +3,11 @@ import styles from '../Header.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faUser } from "@fortawesome/free-regular-svg-icons";
 import { faCartFlatbed } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 const HeaderMenu = ({ handleSetCart, handleSetLogin }) => {
+  const username = useSelector(state => state.username);
+
   return (
     <div className={styles.menu}>
       <div className={styles.item}>
@@ -17,7 +20,9 @@ const HeaderMenu = ({ handleSetCart, handleSetLogin }) => {
       </div>
       <div className={styles.item} onClick={handleSetLogin} style={{cursor: "pointer"}}>
         <FontAwesomeIcon icon={faUser} />
-        Войти
+        {
+          username ? username.substring(0, username.indexOf("@")) : "Войти"
+        }
       </div>
     </div>
   );

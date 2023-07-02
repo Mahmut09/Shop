@@ -9,8 +9,9 @@ import { Provider } from "react-redux";
 
 const defaultState = {
     cart: [],
-    URL: "http://127.0.0.1:8003/",
+    URL: "http://25.21.34.201:8000/",
     accessToken: localStorage.getItem("accessToken") || "",
+    username: localStorage.getItem("username") || ""
 }
 
 const reducer = (state = defaultState, action) => {
@@ -18,8 +19,11 @@ const reducer = (state = defaultState, action) => {
         case "ADD_GOODS":
             return { ...state, cart: [...state.cart, action.payload] };
         case "SET_ACCESS_TOKEN":
-            localStorage.setItem("accessToken", action.payload)
+            localStorage.setItem("accessToken", action.payload);
             return { ...state, accessToken: action.payload };
+        case "SET_USER_NAME":
+            localStorage.setItem("username", action.payload);
+            return { ...state, username: action.payload };
 
 
         default:

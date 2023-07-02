@@ -26,6 +26,7 @@ const GoodsContainer = () => {
     try {
       const response = await fetch(URL + "products/?skip=0&limit=" + page);
       const newData = await response.json();
+      console.log(newData);
       setIsLoading(true);
       setIsError(false);
       setGoods(() => newData.products);
@@ -72,15 +73,15 @@ const GoodsContainer = () => {
 
   return (
     <div className={Styles.container}>
-      {goods.map((good, id) => (
+      {goods.map((product, id) => (
         <GoodsCard
           key={id}
           id={id}
-          thumbnailUrl={good.url}
-          articule={good.count}
-          title={good.name}
-          description={good.description}
-          price={good.price}
+          thumbnailUrl={product.images}
+          articule={product.count}
+          title={product.name}
+          description={product.description}
+          price={product.price}
           addToCart={handleAddToCart}
         />
       ))}
