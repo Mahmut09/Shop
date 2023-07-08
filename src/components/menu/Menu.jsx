@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 // import data from '../../../assets/db/db.json'
 import Item from './item/Item';
 import Styles from './Menu.module.css'
+import HeaderMenu from '../header/items/HeaderMenu';
 import { useSelector } from 'react-redux';
 
 const Menu = () => {
@@ -9,6 +10,7 @@ const Menu = () => {
     const [productСategories, setProductСategories] = useState([]);
 
     const URL = useSelector(state => state.URL);
+    const categoryIsOpen = useSelector(state => state.categoryIsOpen);
 
     const getData = async () => {
         const res = await fetch(URL + "products/category", {
@@ -29,24 +31,24 @@ const Menu = () => {
                 console.log("Error:", error);
             }
         };
-    
+
         fetchData();
-    }, []);  
+    }, []);
 
     return (
         <div className={Styles.menu}>
             {
                 productСategories ?
-                productСategories.map(category => (
-                    <Item
-                        key={category.id}
-                        title={category.name}
-                        thumbnail={category.thumbnail}
-                        categories={category.categories}
-                    />
-                ))
-                :
-                "Категорий нет : ( "
+                    productСategories.map(category => (
+                        <Item
+                            key={category.id}
+                            title={category.name}
+                            thumbnail={category.thumbnail}
+                            categories={category.categories}
+                        />
+                    ))
+                    :
+                    "Категорий нет : ( "
             }
         </div>
     )

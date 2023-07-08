@@ -5,5 +5,10 @@
     gap: 10px;
     justify-content: space-between;
     padding: 0 10px;
-    /* width: 85%; */
+}
+
+@media screen and (max-width: 510px) {
+    .container {
+        justify-content: center;
+    }
 }

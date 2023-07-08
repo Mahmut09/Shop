@@ -67,3 +67,15 @@
         font-size: 1em;
     }
 }
+
+@media screen and (max-width: 795px) {
+    .card {
+        width: max(190px, 40%);
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .card {
+        width: 70%;
+    }
+}

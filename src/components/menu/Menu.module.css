@@ -6,3 +6,9 @@
     top: 74px;
     left: 0;
 }
+
+@media screen and (max-width: 795px) {
+    .menu {
+        overflow-y: auto;
+    }
+}

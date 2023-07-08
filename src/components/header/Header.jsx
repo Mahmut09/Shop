@@ -1,29 +1,44 @@
-import React from "react";
-import styles from "./Header.module.css";
+import React, { useEffect, useState } from "react";
+import Styles from "./Header.module.css";
 import Contacts from "./items/Contacts";
 import HeaderMenu from "./items/HeaderMenu";
+import Burger from "./items/Burger"
+import { useDispatch } from "react-redux";
 
 const Header = ({ handleSetCart, handleSetLogin, handleSetContainer }) => {
-    return (
-        <div className={styles.header}>
-            <div className={styles.logo} onClick={handleSetContainer}>
-                <div className={styles.img}></div>
-                <h1>Nelekvidi.kz</h1>
-            </div>
 
-            <form className={styles.search}>
-                <input type='text' placeholder='Поиск' />
-            </form>
+	const dispatch = useDispatch();
+	const [menuIsOpen, setMenuIsOpen] = useState(false);
 
-            <Contacts />
+	useEffect(() => {
+		if (window.innerWidth <= 795) handleToggleMenu();
+	}, []);
 
-            <HeaderMenu 
-                handleSetCart={handleSetCart}
-                handleSetLogin={handleSetLogin}
-            />
-            
-        </div>
-    );
+	const handleToggleMenu = () => {
+		setMenuIsOpen(!menuIsOpen);
+		dispatch({ type: "SET_MOBILE_IS_OPEN", payload: menuIsOpen });
+	}
+
+	return (
+		<div className={Styles.header}>
+			<div className={Styles.logo}>
+				<Burger className={Styles.burger} handleToggleMenu={handleToggleMenu}/>
+				<div className={Styles.img} onClick={handleSetContainer}></div>
+				<h1 onClick={handleSetContainer}>Nelekvidi.kz</h1>
+			</div>
+
+			<form className={Styles.search}>
+				<input type='text' placeholder='Поиск' />
+			</form>
+
+			<Contacts />
+
+			<HeaderMenu
+				handleSetCart={handleSetCart}
+				handleSetLogin={handleSetLogin}
+			/>
+		</div>
+	);
 };
 
 export default Header;

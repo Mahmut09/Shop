@@ -10,7 +10,7 @@
 }
 
 .item img {
-    width: 16px;
+    width: 20px;
 }
 
 .item:hover {
@@ -19,4 +19,15 @@
 .item:hover .item div div {
     background-color: var(--main-bg);
     color: red;
+}
+
+@media screen and (max-width: 795px) {
+    .item img {
+        width: 26px;
+    }
+
+    .item {
+        font-size: 1.2em;
+        gap: 12px;
+    }
 }

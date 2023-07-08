@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './assets/global.css'
 import reportWebVitals from './reportWebVitals';
 import Home from './components/home/Home';
-
 import { createStore } from 'redux'
 import { Provider } from "react-redux";
 
 const defaultState = {
     cart: [],
-    URL: "http://25.21.34.201:8000/",
+    URL: "http://127.0.0.1:8003/",
     accessToken: localStorage.getItem("accessToken") || "",
-    username: localStorage.getItem("username") || ""
+    username: localStorage.getItem("username") || "",
+    categoryIsOpen: true,
 }
 
 const reducer = (state = defaultState, action) => {
@@ -24,7 +24,8 @@ const reducer = (state = defaultState, action) => {
         case "SET_USER_NAME":
             localStorage.setItem("username", action.payload);
             return { ...state, username: action.payload };
-
+        case "SET_MOBILE_IS_OPEN":
+            return { ...state, categoryIsOpen: action.payload };
 
         default:
             return state;

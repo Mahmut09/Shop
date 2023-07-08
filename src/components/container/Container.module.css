@@ -1,9 +1,15 @@
-/* .container {
-    display: flex;
-    justify-content: flex-end;
-} */
-
 .container {
     display: grid;
     grid-template-columns: minmax(170px, 1fr) 6fr;
+}
+
+@media screen and (max-width: 795px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .active {
+        display: block;
+    }
 }

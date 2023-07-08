@@ -26,7 +26,6 @@ const GoodsContainer = () => {
     try {
       const response = await fetch(URL + "products/?skip=0&limit=" + page);
       const newData = await response.json();
-      console.log(newData);
       setIsLoading(true);
       setIsError(false);
       setGoods(() => newData.products);
