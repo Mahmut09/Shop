@@ -8,10 +8,12 @@ import { Provider } from "react-redux";
 
 const defaultState = {
     cart: [],
-    URL: "http://127.0.0.1:8003/",
+    URL: "http://127.0.0.1:8000/",
     accessToken: localStorage.getItem("accessToken") || "",
     username: localStorage.getItem("username") || "",
     categoryIsOpen: true,
+    searchItems: [],
+
 }
 
 const reducer = (state = defaultState, action) => {
@@ -26,6 +28,9 @@ const reducer = (state = defaultState, action) => {
             return { ...state, username: action.payload };
         case "SET_MOBILE_IS_OPEN":
             return { ...state, categoryIsOpen: action.payload };
+        case "SET_SEARCH_ITEMS":
+            return { ...state, searchItems: action.payload };
+
 
         default:
             return state;
