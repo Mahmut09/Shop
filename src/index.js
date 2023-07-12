@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import Home from './components/home/Home';
 import { createStore } from 'redux'
 import { Provider } from "react-redux";
+import { act } from 'react-dom/test-utils';
 
 const defaultState = {
     cart: [],
@@ -13,7 +14,7 @@ const defaultState = {
     username: localStorage.getItem("username") || "",
     categoryIsOpen: true,
     searchItems: [],
-
+    categoryName: "",
 }
 
 const reducer = (state = defaultState, action) => {
@@ -30,7 +31,8 @@ const reducer = (state = defaultState, action) => {
             return { ...state, categoryIsOpen: action.payload };
         case "SET_SEARCH_ITEMS":
             return { ...state, searchItems: action.payload };
-
+        case "SET_CATEGORY_NAME":
+            return { ...state, categoryName: action.payload };
 
         default:
             return state;

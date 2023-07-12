@@ -80,6 +80,8 @@ const Home = () => {
 					loginIsOpen={state.loginIsOpen}
 					aboutIsOpen={state.aboutIsOpen}
 					contactsIsOpen={state.contactsIsOpen}
+					handleSetCart={handleSetCart}
+					handleSetLogin={handleSetLogin}
 				/>
 			}
 		</div>

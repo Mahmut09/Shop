@@ -15,3 +15,11 @@
     color: steelblue;
     text-decoration: underline;
 }
+
+@media screen and (max-width: 795px) {
+    .contacts {
+        font-size: 1em;
+        width: 90%;
+        margin: auto;
+    }
+}

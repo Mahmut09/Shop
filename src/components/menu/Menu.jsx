@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react'
-// import data from '../../../assets/db/db.json'
 import Item from './item/Item';
 import Styles from './Menu.module.css'
 import HeaderMenu from '../header/items/HeaderMenu';
 import { useSelector } from 'react-redux';
 
-const Menu = () => {
+const Menu = ({ handleSetCart, handleSetLogin }) => {
 
     const [productСategories, setProductСategories] = useState([]);
 
     const URL = useSelector(state => state.URL);
-    const categoryIsOpen = useSelector(state => state.categoryIsOpen);
 
     const getData = async () => {
         const res = await fetch(URL + "products/category", {
@@ -37,6 +35,12 @@ const Menu = () => {
 
     return (
         <div className={Styles.menu}>
+            {
+                <HeaderMenu
+                    handleSetCart={handleSetCart}
+                    handleSetLogin={handleSetLogin}
+                />
+            }
             {
                 productСategories ?
                     productСategories.map(category => (

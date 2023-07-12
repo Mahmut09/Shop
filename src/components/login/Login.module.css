@@ -50,3 +50,32 @@
     padding: 10px 0;
     width: 40%;
 }
+
+@media screen and (max-width: 795px) {
+    .login h3 {
+        font-size: 1.6em;
+    }
+
+    .login form {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .login {
+        padding: 30px 15px;
+    }
+
+    .login form {
+        width: 100%;
+    }
+
+    .login button {
+        width: 70%;
+        font-size: .9em;
+    }
+
+    .login span {
+        width: 100%;
+    }
+}

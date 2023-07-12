@@ -25,3 +25,24 @@
     width: 65%;
     gap: 20px;
 }
+
+@media screen and (max-width: 795px) {
+    .wrapper {
+        flex-direction: column;
+        gap: 50px;
+        padding: 15px 20px;
+        width: 100%;
+    }
+
+    .cart {
+        width: 100%;
+    }
+
+    .cart h2 {
+        font-size: 2em;
+    }
+
+    .container {
+        width: 95%;
+    }
+}

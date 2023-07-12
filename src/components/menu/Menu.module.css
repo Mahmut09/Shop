@@ -7,8 +7,24 @@
     left: 0;
 }
 
+.test {
+    color: red;
+}
+
+.menu> :first-child {
+    display: none;
+}
+
 @media screen and (max-width: 795px) {
     .menu {
         overflow-y: auto;
+        width: 100%;
+    }
+
+    .menu> :first-child {
+        display: flex;
+        padding: 1.2em 0;
+        margin: auto;
+        font-size: .9em;
     }
 }

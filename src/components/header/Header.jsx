@@ -18,7 +18,7 @@ const Header = ({ handleSetCart, handleSetLogin, handleSetContainer }) => {
 
     useEffect(() => {
 		if (window.innerWidth <= 795) handleToggleMenu();
-	}, [handleToggleMenu]);
+	}, []);
 
 	const [searchItems, setSearchItems] = useState([]);
     const [searchKeyword, setSearchKeyword] = useState("");

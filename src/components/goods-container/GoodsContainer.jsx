@@ -19,12 +19,16 @@ const GoodsContainer = () => {
     const [hasMore, setHasMore] = useState(true);
     const [isTop, setIsTop] = useState(true);
 
+
     const initialPage = 10;
     const URL = useSelector(state => state.URL);
+    const categoryName = useSelector(state => state.categoryName);
 
+    
     const fetchData = async (page) => {
         try {
-            const response = await fetch(URL + "products/?skip=0&limit=" + page);
+            console.log(`${URL}products/?skip=0&limit=${page}&category_name=${categoryName}`);
+            const response = await fetch(`${URL}products/?skip=0&limit=${page}&category_name=${categoryName}`);
             const newData = await response.json();
             setIsLoading(true);
             setIsError(false);
@@ -74,6 +78,10 @@ const GoodsContainer = () => {
     useEffect(() => {
         fetchData(initialPage);
     }, []);
+
+    useEffect(() => {
+        fetchData(initialPage);
+    }, [categoryName])
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);

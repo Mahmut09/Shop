@@ -55,3 +55,22 @@
     font-size: 1.5em;
     font-weight: bold;
 }
+
+@media screen and (max-width: 795px) {
+    .item {
+        gap: 12px;
+    }
+
+    .item img {
+        width: 64px;
+    }
+
+    .text {
+        font-size: .8em;
+        flex: 1 1;
+    }
+
+    .totalPrice {
+        font-size: 1.1em;
+    }
+}
