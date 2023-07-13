@@ -1,0 +1,97 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 23%;
+    padding: 20px;
+    gap: 15px;
+    cursor: pointer;
+    background-color: var(--sub-color-third);
+}
+
+.cardImage {
+    width: 100%;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 4/3;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    color: var(--main-color);
+}
+
+.articule {
+    color: var(--sub-color-second);
+}
+
+.title {
+    font-size: 1.2em;
+    font-weight: 800;
+    text-transform: capitalize;
+}
+
+.description {
+    min-height: 120px;
+    font-size: 1.1em;
+}
+
+.price {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.btn {
+    border: 2px solid var(--sub-color-second);
+    padding: 8px;
+    width: 45%;
+    background-color: var(--main-color);
+    color: #fff;
+    font-size: 1.5em;
+    border-radius: 7px;
+    margin-top: 10px;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+@media screen and (max-width: 1456px) {
+    .btn {
+        font-size: 1em;
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 795px) {
+    .card {
+        width: 30%;
+    }
+
+    .btn {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .card {
+        width: 100%;
+    }
+}

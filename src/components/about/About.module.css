@@ -1,0 +1,23 @@
+.about {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about iframe {
+    width: 60%;
+    height: 70vh;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 795px ) {
+    .about {
+        width: 100%;
+    }
+
+    .about iframe {
+        width: 90%;
+        margin: auto;
+    }
+}

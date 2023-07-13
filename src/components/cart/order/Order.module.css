@@ -1,0 +1,19 @@
+.order {
+    color: var(--main-color);
+    width: 30%;
+}
+
+.order h3 {
+    padding-top: 8px;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.order p {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+
+.loginMessage {
+    color: var(--accent-color);
+}

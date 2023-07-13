@@ -1,0 +1,28 @@
+:root {
+    --main-color: #003366;
+    --accent-color: #FF6600;
+    --sub-color-first: #009933;
+    --sub-color-second: #bababa;
+    --sub-color-third: #F5F5F5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+input:focus {
+    outline: none;
+}
