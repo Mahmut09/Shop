@@ -27,27 +27,13 @@
     justify-content: space-around;
 }
 
-.count > span {
-    width: 18px;
-    height: 18px;
-    background-size: cover;
-    background-position: center;
+.count svg {
     cursor: pointer;
-    display: block;
     transition: .3s;
-    border-radius: 100px;
 }
 
-.count > span:hover {
-    filter: drop-shadow(0px 0px 2px #6a6a6a4c);
-}
-
-.count > span:first-child {
-    background-image: url("../../../../public/minus.png");
-}
-
-.count > span:last-child {
-    background-image: url("../../../../public/add.png");
+.count svg:hover {
+    color: var(--accent-color);
 }
 
 .totalPrice {

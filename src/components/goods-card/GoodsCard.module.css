@@ -1,20 +1,22 @@
 .card {
     display: flex;
-    width: max(200px, 20%);
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 23%;
     padding: 20px;
     gap: 15px;
     cursor: pointer;
+    background-color: var(--sub-color-third);
 }
 
 .cardImage {
-    width: max(200px, 100%);
+    width: 100%;
 }
 
 .card img {
     width: 100%;
+    aspect-ratio: 4/3;
 }
 
 .description {
@@ -23,10 +25,12 @@
     align-items: flex-start;
     gap: 10px;
     width: 100%;
+    height: 100%;
+    color: var(--main-color);
 }
 
 .articule {
-    color: #c1c1c1;
+    color: var(--sub-color-second);
 }
 
 .title {
@@ -46,10 +50,11 @@
 }
 
 .btn {
-    border: 2px solid #000;
+    border: 2px solid var(--sub-color-second);
     padding: 8px;
-    width: 50%;
-    background-color: #fff;
+    width: 45%;
+    background-color: var(--main-color);
+    color: #fff;
     font-size: 1.5em;
     border-radius: 7px;
     margin-top: 10px;
@@ -58,24 +63,35 @@
 }
 
 .btn:hover {
-    background-color: var(--hover-gray);
+    background-color: var(--accent-color);
     color: #fff;
 }
 
 @media screen and (max-width: 1456px) {
     .btn {
         font-size: 1em;
+        width: 65%;
     }
 }
 
 @media screen and (max-width: 795px) {
     .card {
-        width: max(190px, 40%);
+        width: 30%;
+    }
+
+    .btn {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card {
+        width: 45%;
     }
 }
 
 @media screen and (max-width: 375px) {
     .card {
-        width: 70%;
+        width: 100%;
     }
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Styles from './Item.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons'
@@ -10,6 +10,8 @@ const Item = ({ title, thumbnail, categories }) => {
     if (!thumbnail) thumbnail = "./thumbnails/dozer.png";
     const dispatch = useDispatch();
 
+    const [activeCategory, setActiveCategory] = useState("");
+
 
     let activeItem = categories.length > 0 ? true : false;
     // const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +21,10 @@ const Item = ({ title, thumbnail, categories }) => {
     // };
 
     const handleCategoryClick = (e) => {
-        const categoryName = e.target.textContent 
+        const target = e.target;
+        const categoryName = target.textContent;
+        setActiveCategory(target);
+        console.log(activeCategory);
         dispatch({ type: "SET_CATEGORY_NAME", payload: categoryName });
     };
 

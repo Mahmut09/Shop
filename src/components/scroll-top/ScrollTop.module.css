@@ -9,10 +9,10 @@
     color: #fff;
     border: 0;
     cursor: pointer;
-    background-color: #c1c1c1d0;
+    background-color: var(--sub-color-second);
     transition: .3s ease-in-out;
 }
 
 .btn:hover {
-    background-color: var(--hover-gray);
+    background-color: var(--accent-color);
 }

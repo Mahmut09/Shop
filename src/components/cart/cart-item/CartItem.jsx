@@ -1,5 +1,7 @@
 import React from "react";
 import Style from "./CartItem.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquareMinus, faSquarePlus } from '@fortawesome/free-regular-svg-icons'
 
 const CartItem = ({ id, title, price, count, thumbnailUrl, handleChangeCart }) => {
 
@@ -14,9 +16,9 @@ const CartItem = ({ id, title, price, count, thumbnailUrl, handleChangeCart }) =
         <span>{price} ТГ</span>
       </div>
       <div className={Style.count}>
-        <span className="minus"></span>
+        <FontAwesomeIcon icon={faSquareMinus} className="minus"/>
         {count}
-        <span className="plus"></span>
+        <FontAwesomeIcon icon={faSquarePlus} className="plus"/>
       </div>
       <div className={Style.totalPrice}>{price * count} ТГ</div>
 

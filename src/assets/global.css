@@ -1,7 +1,9 @@
 :root {
-    --main-gray: #f1f6f7;
-    --hover-gray: #c0c0c0;
-    --hover-sub-gray: #a0a0a0;
+    --main-color: #003366;
+    --accent-color: #FF6600;
+    --sub-color-first: #009933;
+    --sub-color-second: #bababa;
+    --sub-color-third: #F5F5F5;
 }
 
 * {

@@ -1,6 +1,7 @@
 .menu {
     width: 100%;
-    background-color: var(--main-gray);
+    background-color: var(--accent-color);
+    color: var(--sub-color-third);
 }
 
 .nav {
@@ -14,10 +15,11 @@
     padding: 14px 12px;
     transition: .3s ease-in-out;
     cursor: pointer;
+
 }
 
 .item:hover {
-    background-color: var(--hover-gray);
+    background-color: #d35400;
 }
 
 @media screen and (max-width: 430px) {

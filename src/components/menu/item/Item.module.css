@@ -10,12 +10,13 @@
 }
 
 .item img {
-    width: 20px;
+    width: 24px;
 }
 
 .item:hover {
-    background-color: var(--hover-gray);
+    background-color: var(--accent-color);
 }
+
 .item:hover .item div div {
     background-color: var(--main-bg);
     color: red;

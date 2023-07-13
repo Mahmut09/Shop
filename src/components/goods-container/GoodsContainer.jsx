@@ -27,7 +27,6 @@ const GoodsContainer = () => {
     
     const fetchData = async (page) => {
         try {
-            console.log(`${URL}products/?skip=0&limit=${page}&category_name=${categoryName}`);
             const response = await fetch(`${URL}products/?skip=0&limit=${page}&category_name=${categoryName}`);
             const newData = await response.json();
             setIsLoading(true);

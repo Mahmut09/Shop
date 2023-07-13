@@ -63,7 +63,7 @@ const Header = ({ handleSetCart, handleSetLogin, handleSetContainer }) => {
 			<div className={Styles.logo}>
 				<Burger className={Styles.burger} handleToggleMenu={handleToggleMenu}/>
 				<div className={Styles.img} onClick={handleSetContainer}></div>
-				<h1 onClick={handleSetContainer}>Nelekvidi.kz</h1>
+				<h1 onClick={handleSetContainer}>Shop</h1>
 			</div>
 
 			<form className={Styles.search}  onSubmit={handleSearch}>

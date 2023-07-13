@@ -26,7 +26,7 @@ const Order = ({ cart }) => {
           <button>Купить</button>
         </form>
       ) : (
-        "Войдите в аккаунт, чтобы купить"
+        <div className={Styles.loginMessage}>Войдите в аккаунт, чтобы купить</div>
       )}
     </div>
   );

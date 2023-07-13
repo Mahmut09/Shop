@@ -7,7 +7,7 @@ const ScrollTop = () => {
     document.documentElement.scrollTop = 0;
   }
 
-  return <button className={Styles.btn} onClick={scrollToTop}>ScrollTop</button>
+  return <button className={Styles.btn} onClick={scrollToTop}>Наверх</button>
 }
 
 export default ScrollTop
