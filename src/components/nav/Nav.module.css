@@ -19,7 +19,7 @@
 }
 
 .item:hover {
-    background-color: #d35400;
+    background-color: var(--accent-color-hover);
 }
 
 @media screen and (max-width: 430px) {

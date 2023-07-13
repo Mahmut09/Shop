@@ -24,7 +24,6 @@ const GoodsContainer = () => {
     const URL = useSelector(state => state.URL);
     const categoryName = useSelector(state => state.categoryName);
 
-    
     const fetchData = async (page) => {
         try {
             const response = await fetch(`${URL}products/?skip=0&limit=${page}&category_name=${categoryName}`);
@@ -91,6 +90,7 @@ const GoodsContainer = () => {
 
     return (
         <div className={Styles.container}>
+            {/* <h2 className={Styles.category}>{categoryName}</h2> */}
             {goods.map((product, id) => (
                 <GoodsCard
                     key={id}

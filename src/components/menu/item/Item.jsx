@@ -5,26 +5,33 @@ import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons'
 import ActiveMenu from '../activeMenu/ActiveMenu';
 import { useDispatch } from 'react-redux';
 
-const Item = ({ title, thumbnail, categories }) => {
+const Item = ({ title, thumbnail, categories, handleSetContainer }) => {
 
     if (!thumbnail) thumbnail = "./thumbnails/dozer.png";
     const dispatch = useDispatch();
-
-    const [activeCategory, setActiveCategory] = useState("");
-
+    const [isOpen, setIsOpen] = useState(false);
 
     let activeItem = categories.length > 0 ? true : false;
-    // const [isOpen, setIsOpen] = useState(false);
 
-    // const toggleMenu = () => {
-    //     setIsOpen(!isOpen);
-    // };
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
 
     const handleCategoryClick = (e) => {
         const target = e.target;
-        const categoryName = target.textContent;
-        setActiveCategory(target);
-        console.log(activeCategory);
+        let categoryName;
+        if (activeItem) {
+            toggleMenu();
+            activeItem = false;
+            return;
+        }
+        handleSetContainer();
+        if (target.tagName === "IMG") {
+            categoryName = target.nextElementSibling.textContent;
+            dispatch({ type: "SET_CATEGORY_NAME", payload: categoryName});
+            return;
+        }
+        categoryName = target.textContent;
         dispatch({ type: "SET_CATEGORY_NAME", payload: categoryName });
     };
 
@@ -44,11 +51,12 @@ const Item = ({ title, thumbnail, categories }) => {
                     :
                     ""
             }
-            {/* {isOpen && (
+            {isOpen && (
                 <ActiveMenu
                     categories={categories}
+                    handleCategoryClick={handleCategoryClick}
                 />
-            )} */}
+            )}
         </div>
     )
 }

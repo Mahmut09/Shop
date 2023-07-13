@@ -8,7 +8,7 @@ import Contacts from "../contacts/Contacts";
 import Styles from "./Container.module.css";
 import { useSelector } from "react-redux";
 
-const Container = ({ containerIsOpen, cartIsOpen, loginIsOpen, aboutIsOpen, contactsIsOpen, handleSetCart, handleSetLogin }) => {
+const Container = ({ containerIsOpen, cartIsOpen, loginIsOpen, aboutIsOpen, contactsIsOpen, handleSetCart, handleSetLogin, handleSetContainer }) => {
 
 	const menuIsOpen = useSelector(state => state.categoryIsOpen);
 
@@ -17,7 +17,8 @@ const Container = ({ containerIsOpen, cartIsOpen, loginIsOpen, aboutIsOpen, cont
 			{
 				menuIsOpen && <Menu
 					handleSetCart={handleSetCart}
-					handleSetLogin={handleSetLogin}/>
+					handleSetLogin={handleSetLogin}
+					handleSetContainer={handleSetContainer}/>
 			}
 			{containerIsOpen && <GoodsContainer />}
 			{cartIsOpen && <Cart />}

@@ -82,6 +82,7 @@ const Home = () => {
 					contactsIsOpen={state.contactsIsOpen}
 					handleSetCart={handleSetCart}
 					handleSetLogin={handleSetLogin}
+					handleSetContainer={handleSetContainer}
 				/>
 			}
 		</div>

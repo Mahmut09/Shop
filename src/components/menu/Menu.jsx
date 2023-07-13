@@ -4,7 +4,7 @@ import Styles from './Menu.module.css'
 import HeaderMenu from '../header/items/HeaderMenu';
 import { useSelector } from 'react-redux';
 
-const Menu = ({ handleSetCart, handleSetLogin }) => {
+const Menu = ({ handleSetCart, handleSetLogin, handleSetContainer }) => {
 
     const [productСategories, setProductСategories] = useState([]);
 
@@ -48,7 +48,8 @@ const Menu = ({ handleSetCart, handleSetLogin }) => {
                             key={category.id}
                             title={category.name}
                             thumbnail={category.thumbnail}
-                            categories={category.categories}
+                            categories={category.subcategories}
+                            handleSetContainer={handleSetContainer}
                         />
                     ))
                     :

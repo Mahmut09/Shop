@@ -5,11 +5,10 @@ import reportWebVitals from './reportWebVitals';
 import Home from './components/home/Home';
 import { createStore } from 'redux'
 import { Provider } from "react-redux";
-import { act } from 'react-dom/test-utils';
 
 const defaultState = {
     cart: [],
-    URL: "http://127.0.0.1:8000/",
+    URL: "http://172.28.0.152:8000/",
     accessToken: localStorage.getItem("accessToken") || "",
     username: localStorage.getItem("username") || "",
     categoryIsOpen: true,

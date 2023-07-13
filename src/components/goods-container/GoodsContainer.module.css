@@ -7,6 +7,11 @@
     padding: 0 10px;
 }
 
+.category {
+    font-size: 2em;
+    text-transform: capitalize;
+}
+
 @media screen and (max-width: 510px) {
     .container {
         justify-content: center;

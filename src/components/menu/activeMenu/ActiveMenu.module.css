@@ -17,5 +17,9 @@
 }
 
 .item:hover {
-    background-color: var(--hover-sub-gray);
+    background-color: var(--accent-color-hover);
+}
+
+.active {
+    color: red;
 }
