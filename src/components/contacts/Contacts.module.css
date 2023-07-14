@@ -1,0 +1,26 @@
+.contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2em;
+    gap: 30px;
+    padding-top: 50px;
+    color: var(--main-color);
+}
+
+.contacts > li:last-child {
+    font-weight: 600;
+}
+
+.contacts a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 795px) {
+    .contacts {
+        font-size: 1em;
+        width: 90%;
+        margin: auto;
+    }
+}

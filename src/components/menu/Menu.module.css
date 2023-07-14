@@ -1,0 +1,27 @@
+.menu {
+    height: calc(100vh - 75px);
+    background-color: var(--sub-color-second);
+    position: sticky;
+    top: 74px;
+    left: 0;
+    color: #fff;
+    overflow: auto;
+}
+
+.menu > :first-child {
+    display: none;
+}
+
+@media screen and (max-width: 795px) {
+    .menu {
+        overflow-y: auto;
+        width: 100%;
+    }
+
+    .menu > :first-child {
+        display: flex;
+        padding: 1.2em 0;
+        margin: auto;
+        font-size: .9em;
+    }
+}

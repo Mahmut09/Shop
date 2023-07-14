@@ -1,0 +1,85 @@
+.login {
+    width: 85%;
+    padding: 30px 40px;
+    color: var(--main-color);
+}
+
+.login h3 {
+    font-size: 64px;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 35%;
+}
+
+.login input {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid var(--main-color);
+    color: var(--main-color);
+    padding: 10px 5px;
+    font-size: 1.1em;
+    transition: .3s ease-in-out;
+}
+
+.login input:focus {
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.login button {
+    width: 45%;
+    padding: 10px 5px;
+    margin-top: 15px;
+    background-color: var(--main-color);
+    color: #fff;
+    border: 2px solid var(--main-color);
+    font-size: 1.1em;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.login button:hover {
+    border: 2px solid var(--accent-color);
+    background-color: var(--accent-color);
+}
+
+.login span {
+    font-weight: 600;
+    color: var(--accent-color);
+    cursor: pointer;
+    padding: 10px 0;
+    width: 40%;
+}
+
+@media screen and (max-width: 795px) {
+    .login h3 {
+        font-size: 1.6em;
+    }
+
+    .login form {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .login {
+        padding: 30px 15px;
+    }
+
+    .login form {
+        width: 100%;
+    }
+
+    .login button {
+        width: 70%;
+        font-size: .9em;
+    }
+
+    .login span {
+        width: 100%;
+    }
+}

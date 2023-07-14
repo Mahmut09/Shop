@@ -1,0 +1,157 @@
+.header {
+    width: 100%;
+    background-color: var(--main-color);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(max(300px, 15%), 1fr));
+    gap: 15px;
+    position: sticky;
+    height: 74px;
+    padding: 10px 0;
+    top: 0;
+    color: var(--sub-color-third);
+}
+
+.header a {
+    color: var(--sub-color-third);
+}
+
+.search {
+    grid-column: span 2;
+    width: 90%;
+    margin: auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+
+.img {
+    width: 70px;
+    height: 50px;
+    background-image: url("../../../public/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 30px;
+}
+
+.search input {
+    background-image: url('../../../public/search-symbol.png');
+    background-repeat: no-repeat;
+    background-position-x: min(2%, 5%);
+    background-position-y: center;
+    padding: 10px;
+    padding-left: 6%;
+    background-color: #fff;
+    border: 2px solid var(--sub-color-third);
+    border-radius: 7px;
+    font-size: 1.2em;
+    width: 100%;
+    color: #000;
+}
+
+.contacts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 1.2em;
+    justify-self: left;
+    padding-left: 12px;
+}
+
+.contacts a svg {
+    margin-right: 10px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    font-size: 1.1em;
+}
+
+@media screen and (max-width: 1560px) {
+    .logo h1 {
+        font-size: 1.5em;
+    }
+
+    .contacts {
+        font-size: 1em;
+    }
+
+    .item {
+        font-size: 1em;
+    }
+
+    .search {
+        grid-column: span 1;
+    }
+
+    .search input {
+        background-position-x: min(3%, 5%);
+        padding-left: 13%;
+        background-size: 8%;
+    }
+}
+
+@media screen and (max-width: 1244px) {
+    .header {
+        grid-template-columns: repeat(auto-fit, minmax(max(190px, 15%), 1fr));
+        gap: 12px;
+    }
+
+    .search input {
+        padding: 10px;
+        padding-left: 15%;
+    }
+}
+
+@media screen and (max-width: 795px) {
+    .header > .menu, .header > .contacts {
+        display: none;
+    }
+
+    .burger {
+        width: 30px;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .burger span {
+        width: 100%;
+        height: 4px;
+        background-color: #fff;
+    }
+
+    .search {
+        margin: 0;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .header {
+        height: 140px;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 12px;
+    }
+
+    .search {
+        margin: auto;
+    }
+}

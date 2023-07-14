@@ -1,0 +1,44 @@
+.menu {
+    width: 100%;
+    background-color: var(--accent-color);
+    color: var(--sub-color-third);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1.1em;
+}
+
+.item {
+    padding: 14px 12px;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+
+}
+
+.item:hover {
+    background-color: var(--accent-color-hover);
+}
+
+@media screen and (max-width: 430px) {
+    .nav {
+        font-size: .9em;
+        flex-wrap: nowrap;
+    }
+
+    .item {
+        padding: 12px 10px;
+    }
+}
+
+@media screen and (max-width: 355px) {
+    .nav {
+        font-size: .8em;
+    }
+    .item {
+        padding: 10px 8px;
+        text-align: center;
+    }
+}
