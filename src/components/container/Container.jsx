@@ -7,6 +7,8 @@ import About from "../about/About";
 import Contacts from "../contacts/Contacts";
 import Styles from "./Container.module.css";
 import { useSelector } from "react-redux";
+import Payment from "../payment/Payment";
+
 
 const Container = ({ containerIsOpen, cartIsOpen, loginIsOpen, aboutIsOpen, contactsIsOpen, handleSetCart, handleSetLogin, handleSetContainer }) => {
 
@@ -20,11 +22,12 @@ const Container = ({ containerIsOpen, cartIsOpen, loginIsOpen, aboutIsOpen, cont
 					handleSetLogin={handleSetLogin}
 					handleSetContainer={handleSetContainer}/>
 			}
-			{containerIsOpen && <GoodsContainer />}
+			<Payment></Payment>
+			{/* {containerIsOpen && <GoodsContainer />}
 			{cartIsOpen && <Cart />}
 			{loginIsOpen && <Login />}
 			{aboutIsOpen && <About />}
-			{contactsIsOpen && <Contacts />}
+			{contactsIsOpen && <Contacts />} */}
 		</div>
 	);
 };

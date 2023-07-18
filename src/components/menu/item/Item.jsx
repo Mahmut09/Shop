@@ -11,7 +11,8 @@ const Item = ({ title, thumbnail, categories, handleSetContainer }) => {
     const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
 
-    let activeItem = categories.length > 0 ? true : false;
+    let activeItem;
+    if (activeItem) activeItem = categories.length > 0 ? true : false;
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);

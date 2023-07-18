@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 
 const defaultState = {
     cart: [],
-    URL: "http://172.28.0.152:8000/",
+    URL: "http://172.28.0.92:9999/",
     accessToken: localStorage.getItem("accessToken") || "",
     username: localStorage.getItem("username") || "",
     categoryIsOpen: true,
@@ -42,11 +42,11 @@ const store = createStore(reducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <Home />
-        </Provider>
-    </React.StrictMode>
+
+    <Provider store={store}>
+        <Home />
+    </Provider>
+
 );
 
 reportWebVitals();
