@@ -12,6 +12,7 @@ const Home = () => {
 		loginIsOpen: false,
 		aboutIsOpen: false,
 		contactsIsOpen: false,
+		paymentIsOpen: false,
 	};
 
 	const URL = useSelector(state => state.URL);
@@ -61,8 +62,12 @@ const Home = () => {
 		setState({ ...initialState, contactsIsOpen: true });
 	};
 
+	const handleSetPayment = () => {
+		setState({ ...initialState, paymentIsOpen: true });
+	};
+
 	return (
-		<div className={styles.div}>
+		<div>
 			<Nav
 				handleSetContainer={handleSetContainer}
 				handleSetAbout={handleSetAbout}
@@ -72,6 +77,7 @@ const Home = () => {
 				handleSetContainer={handleSetContainer}
 				handleSetCart={handleSetCart}
 				handleSetLogin={handleSetLogin}
+				handleSetPayment={handleSetPayment}
 			/>
 			{
 				<Container
@@ -80,9 +86,11 @@ const Home = () => {
 					loginIsOpen={state.loginIsOpen}
 					aboutIsOpen={state.aboutIsOpen}
 					contactsIsOpen={state.contactsIsOpen}
+					paymentIsOpen={state.paymentIsOpen}
 					handleSetCart={handleSetCart}
 					handleSetLogin={handleSetLogin}
 					handleSetContainer={handleSetContainer}
+					handleSetPayment={handleSetPayment}
 				/>
 			}
 		</div>

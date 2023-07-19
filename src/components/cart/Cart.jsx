@@ -3,7 +3,7 @@ import Styles from "./Cart.module.css";
 import CartItem from "./cart-item/CartItem";
 import Order from "./order/Order";
 
-const Cart = () => {
+const Cart = ({ handleSetPayment }) => {
     const [cart, setCart] = useState([]);
     const handleChangeCart = (e) => {
         const currentTarget = e.currentTarget;
@@ -63,7 +63,16 @@ const Cart = () => {
                 <h2 className={Styles.cart}>Корзина пуста</h2>
             )}
 
-            {cart.length > 0 ? <Order className={Styles.form} cart={cart} /> : ""}
+            {
+                cart.length > 0 ?
+                    <Order 
+                        className={Styles.form} 
+                        cart={cart}
+                        handleSetPayment={handleSetPayment}
+                    />
+                    :
+                    ""
+            }
         </div>
     );
 };

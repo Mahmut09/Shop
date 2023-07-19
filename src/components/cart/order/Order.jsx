@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Styles from "./Order.module.css";
 
-const Order = ({ cart }) => {
+const Order = ({ cart, handleSetPayment }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalGoodsCount, setTotalGoodsCount] = useState(0);
   const token = useSelector(state => state.accessToken);
@@ -23,7 +23,7 @@ const Order = ({ cart }) => {
       <p>Общая стоимость: {totalPrice} тг</p>
       {token ? (
         <form>
-          <button>Купить</button>
+          <button onClick={handleSetPayment}>Купить</button>
         </form>
       ) : (
         <div className={Styles.loginMessage}>Войдите в аккаунт, чтобы купить</div>
