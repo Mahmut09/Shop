@@ -1,20 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './assets/global.css'
+import './assets/global.css';
 import reportWebVitals from './reportWebVitals';
 import Home from './components/home/Home';
-import { createStore } from 'redux'
+import { createStore } from 'redux';
 import { Provider } from "react-redux";
+import { BrowserRouter } from 'react-router-dom'
 
 const defaultState = {
     cart: [],
-    URL: "http://172.28.0.92:9999/",
+    URL: "http://172.28.0.152:9999/",
     accessToken: localStorage.getItem("accessToken") || "",
     username: localStorage.getItem("username") || "",
     categoryIsOpen: true,
     searchItems: [],
     categoryName: "",
-}
+};
 
 const reducer = (state = defaultState, action) => {
     switch (action.type) {
@@ -43,9 +44,11 @@ const store = createStore(reducer);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-    <Provider store={store}>
-        <Home />
-    </Provider>
+    <BrowserRouter>
+        <Provider store={store}>
+            <Home />
+        </Provider>
+    </BrowserRouter>
 
 );
 

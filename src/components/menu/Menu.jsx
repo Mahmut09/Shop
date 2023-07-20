@@ -25,6 +25,7 @@ const Menu = ({ handleSetCart, handleSetLogin, handleSetContainer }) => {
             try {
                 const data = await getData();
                 setProductСategories(data.categories);
+                console.log(data.categories);
             } catch (error) {
                 console.log("Error:", error);
             }

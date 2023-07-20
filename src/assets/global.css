@@ -27,3 +27,12 @@ li {
 input:focus {
     outline: none;
 }
+
+body::-webkit-scrollbar {
+    width: .8em;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    outline: 1px solid var(--sub-color-second);
+}

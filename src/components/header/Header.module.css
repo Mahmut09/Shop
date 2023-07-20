@@ -30,7 +30,7 @@
 
 
 .img {
-    width: 70px;
+    width: 20%;
     height: 50px;
     background-image: url("../../../public/logo.png");
     background-size: contain;

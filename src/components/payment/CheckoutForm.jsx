@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import './Payment.css';
+import Styles from './Payment.module.css';
 
 const CheckoutForm = () => {
     const stripe = useStripe();
@@ -71,15 +71,10 @@ const CheckoutForm = () => {
     }
 
     return (
-        <form id="payment-form" onSubmit={handleSubmit} className="payment-form">
-            <input
-                type="text"
-                id="link-authentication-element"
-                onChange={(e) => setEmail(e.target.value)}
-                className="payment-form__input"
-            />
-            <PaymentElement id="payment-element" options={paymentElementOptions} className="payment-form__payment-element" />
-            <button disabled={isLoading || !stripe || !elements} id="submit" className="payment-form__submit-button">
+        <form id="payment-form" onSubmit={handleSubmit} className={Styles.form}>
+            {/* <input type="text" id="link-authentication-element" onChange={(e) => setEmail(e.target.value)} className="payment-form__input"/> */}
+            <PaymentElement id="payment-element" options={paymentElementOptions} className={Styles.elements} />
+            <button disabled={isLoading || !stripe || !elements} id="submit" className={Styles.btn}>
                 <span id="button-text" className="payment-form__button-text">
                     {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
                 </span>

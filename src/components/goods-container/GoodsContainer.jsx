@@ -3,9 +3,9 @@ import GoodsCard from "../goods-card/GoodsCard";
 import Styles from "./GoodsContainer.module.css";
 import ScrollTop from "../scroll-top/ScrollTop";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from './cartAction'
+import { addToCart } from './cartAction';
 
-const GoodsContainer = () => {
+const GoodsContainer = ({ handleProductClick }) => {
     const dispatch = useDispatch();
 
     const handleAddToCart = (card) => {
@@ -66,6 +66,7 @@ const GoodsContainer = () => {
     useEffect(() => {
         if (searchItems.length === 0) {
             fetchData(initialPage);
+            dispatch({ type: "SET_CATEGORY_NAME", payload: "" });
             setHasMore(true);
         } else {
             setGoods(searchItems);
@@ -92,16 +93,17 @@ const GoodsContainer = () => {
         <div className={Styles.container}>
             {/* <h2 className={Styles.category}>{categoryName}</h2> */}
             {goods.map((product, id) => (
-                <GoodsCard
-                    key={id}
-                    id={id}
-                    thumbnailUrl={product.images}
-                    articule={product.count}
-                    title={product.name}
-                    description={product.description}
-                    price={product.price}
-                    addToCart={handleAddToCart}
-                />
+                    <GoodsCard
+                        key={id}
+                        id={id}
+                        thumbnailUrl={product.images}
+                        articule={product.count}
+                        title={product.name}
+                        description={product.description}
+                        price={product.price}
+                        addToCart={handleAddToCart}
+                        handleProductClick={handleProductClick}
+                    />
             ))}
             {isLoading && <div>Loading...</div>}
             {isError && <div>Бэк не вывез простите <button onClick={() => fetchData(initialPage)}>Попробовать еще раз</button></div>}

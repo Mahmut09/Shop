@@ -17,3 +17,26 @@
 .loginMessage {
     color: var(--accent-color);
 }
+
+.btn {
+    border: 2px solid var(--sub-color-second);
+    padding: 8px;
+    width: 35%;
+    background-color: var(--main-color);
+    color: #fff;
+    font-size: 1.2em;
+    border-radius: 7px;
+    margin-top: 10px;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+}
+
+@media screen and (max-width: 795px) {
+    .order {
+        width: 100%;
+    }
+}

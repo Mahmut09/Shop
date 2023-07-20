@@ -8,7 +8,16 @@
     overflow: auto;
 }
 
-.menu > :first-child {
+.menu::-webkit-scrollbar {
+    width: .8em;
+}
+
+.menu::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    outline: 1px solid var(--sub-color-second);
+}
+
+.menu> :first-child {
     display: none;
 }
 
@@ -17,8 +26,7 @@
         overflow-y: auto;
         width: 100%;
     }
-
-    .menu > :first-child {
+    .menu> :first-child {
         display: flex;
         padding: 1.2em 0;
         margin: auto;

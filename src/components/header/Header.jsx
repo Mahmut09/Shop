@@ -7,20 +7,20 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Header = ({ handleSetCart, handleSetLogin, handleSetContainer }) => {
 
-	const dispatch = useDispatch();
-	const [menuIsOpen, setMenuIsOpen] = useState(false);
+    const dispatch = useDispatch();
+    const [menuIsOpen, setMenuIsOpen] = useState(false);
     const URL = useSelector(state => state.URL);
 
-	const handleToggleMenu = () => {
-		setMenuIsOpen(!menuIsOpen);
-		dispatch({ type: "SET_MOBILE_IS_OPEN", payload: menuIsOpen });
-	};
+    const handleToggleMenu = () => {
+        setMenuIsOpen(!menuIsOpen);
+        dispatch({ type: "SET_MOBILE_IS_OPEN", payload: menuIsOpen });
+    };
 
     useEffect(() => {
-		if (window.innerWidth <= 795) handleToggleMenu();
-	}, []);
+        if (window.innerWidth <= 795) handleToggleMenu();
+    }, []);
 
-	const [searchItems, setSearchItems] = useState([]);
+    const [searchItems, setSearchItems] = useState([]);
     const [searchKeyword, setSearchKeyword] = useState("");
 
     const searchData = async (searchKeyword) => {
@@ -41,7 +41,7 @@ const Header = ({ handleSetCart, handleSetLogin, handleSetContainer }) => {
 
     const handleSearch = async (e) => {
         e.preventDefault();
-    
+
         if (searchKeyword.trim() !== "") {
             const searchResult = await searchData(searchKeyword);
             setSearchItems(searchResult);
@@ -53,31 +53,38 @@ const Header = ({ handleSetCart, handleSetLogin, handleSetContainer }) => {
         setSearchKeyword(value);
         if (value.trim().length === 0) setSearchItems([]);
     }
-    
+
     useEffect(() => {
         dispatch({ type: "SET_SEARCH_ITEMS", payload: searchItems });
     }, [dispatch, searchItems]);
 
-	return (
-		<div className={Styles.header}>
-			<div className={Styles.logo}>
-				<Burger className={Styles.burger} handleToggleMenu={handleToggleMenu}/>
-				<div className={Styles.img} onClick={handleSetContainer}></div>
-				<h1 onClick={handleSetContainer}>Shop</h1>
-			</div>
+    const categoryName = useSelector(state => state.categoryName);
 
-			<form className={Styles.search}  onSubmit={handleSearch}>
-				<input type='text' placeholder='Поиск' onChange={handleChangeInput}/>
-			</form>
 
-			<Contacts />
+    return (
+        <div className={Styles.header}>
+            <div className={Styles.logo}>
+                <Burger className={Styles.burger} handleToggleMenu={handleToggleMenu} />
+                <div className={Styles.img} onClick={handleSetContainer}></div>
+                <h1>
+                    <span onClick={handleSetContainer}>Shop</span>
+                    {categoryName ? ` / ${categoryName}` : ""}
+                </h1>
 
-			<HeaderMenu
-				handleSetCart={handleSetCart}
-				handleSetLogin={handleSetLogin}
-			/>
-		</div>
-	);
+            </div>
+
+            <form className={Styles.search} onSubmit={handleSearch}>
+                <input type='text' placeholder='Поиск' onChange={handleChangeInput} />
+            </form>
+
+            <Contacts />
+
+            <HeaderMenu
+                handleSetCart={handleSetCart}
+                handleSetLogin={handleSetLogin}
+            />
+        </div>
+    );
 };
 
 export default Header;
