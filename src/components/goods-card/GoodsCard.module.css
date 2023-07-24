@@ -9,6 +9,7 @@
     gap: 15px;
     cursor: pointer;
     background-color: var(--sub-color-third);
+    border-radius: 6px;
 }
 
 .cardImage {

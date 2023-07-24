@@ -17,7 +17,7 @@
     outline: 1px solid var(--sub-color-second);
 }
 
-.menu> :first-child {
+.menu > :first-child {
     display: none;
 }
 

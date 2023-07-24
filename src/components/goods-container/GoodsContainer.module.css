@@ -2,9 +2,9 @@
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-    gap: 10px;
+    gap: 25px;
     justify-content: space-between;
-    padding: 0 10px;
+    padding: 20px 15px;
 }
 
 .category {

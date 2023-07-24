@@ -91,7 +91,6 @@ const GoodsContainer = ({ handleProductClick }) => {
 
     return (
         <div className={Styles.container}>
-            {/* <h2 className={Styles.category}>{categoryName}</h2> */}
             {goods.map((product, id) => (
                     <GoodsCard
                         key={id}

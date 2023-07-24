@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Styles from '../Header.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faUser } from "@fortawesome/free-regular-svg-icons";
@@ -14,11 +14,12 @@ const HeaderMenu = ({ handleSetCart, handleSetLogin }) => {
                 <FontAwesomeIcon icon={faHeart} />
                 Избраное
             </div>
-            <div className={Styles.item} onClick={handleSetCart} style={{ cursor: "pointer" }}>
+            <div className={Styles.item} onClick={handleSetCart}>
+                {/* <span className={Styles.count}>0</span> */}
                 <FontAwesomeIcon icon={faCartFlatbed} />
                 Корзина
             </div>
-            <div className={Styles.item} onClick={handleSetLogin} style={{ cursor: "pointer" }}>
+            <div className={Styles.item} onClick={handleSetLogin}>
                 <FontAwesomeIcon icon={faUser} />
                 {
                     username ? username.substring(0, username.indexOf("@")) : "Войти"

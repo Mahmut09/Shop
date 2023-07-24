@@ -17,7 +17,7 @@ const GoodsCard = ({ id, thumbnailUrl, articule, title, price, addToCart, descri
         <Link 
             className={Styles.card} 
             to={`/product/${id}`}
-            onClick={(e) => {e.preventDefault(); handleProductClick(id, card)}}
+            onClick={e => handleProductClick(id, card, e)}
         >
             <div className={Styles.cardImage}>
                 <img src={card.thumbnailUrl} alt={title} />

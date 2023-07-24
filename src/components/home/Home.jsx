@@ -68,7 +68,10 @@ const Home = () => {
         setState({ ...initialState, paymentIsOpen: true });
     };
 
-    const handleSetProduct = (productId, card) => {
+    const handleSetProduct = (productId, card, e) => {
+        e.preventDefault();
+        if (e.target.tagName == "BUTTON") return;
+
         setState({ ...initialState, productDetailIsOpen: true });
         setProductCard(card);
     };
