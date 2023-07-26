@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import GoodsCard from "../goods-card/GoodsCard";
 import Styles from "./GoodsContainer.module.css";
@@ -92,17 +93,17 @@ const GoodsContainer = ({ handleProductClick }) => {
     return (
         <div className={Styles.container}>
             {goods.map((product, id) => (
-                    <GoodsCard
-                        key={id}
-                        id={id}
-                        thumbnailUrl={product.images}
-                        articule={product.count}
-                        title={product.name}
-                        description={product.description}
-                        price={product.price}
-                        addToCart={handleAddToCart}
-                        handleProductClick={handleProductClick}
-                    />
+                <GoodsCard
+                    key={id}
+                    id={id}
+                    thumbnailUrlArr={product.images}
+                    articule={product.count}
+                    title={product.name}
+                    description={product.description}
+                    price={product.price}
+                    addToCart={handleAddToCart}
+                    handleProductClick={handleProductClick}
+                />
             ))}
             {isLoading && <div>Loading...</div>}
             {isError && <div>Бэк не вывез простите <button onClick={() => fetchData(initialPage)}>Попробовать еще раз</button></div>}

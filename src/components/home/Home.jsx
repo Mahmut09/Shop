@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Nav from "../nav/Nav";
 import Header from "../header/Header";
 import Container from "../container/Container";
@@ -20,7 +21,8 @@ const Home = () => {
     const dispatch = useDispatch();
 
     const [state, setState] = useState(initialState);
-    const [productCard, setProductCard] = useState(initialState)
+    const [productCard, setProductCard] = useState(initialState);
+    const [thumbnailUrlArr, setTetthumbnailUrlArr] = useState([]);
 
     useEffect(() => {
         setState({ ...initialState, containerIsOpen: true });
@@ -68,12 +70,13 @@ const Home = () => {
         setState({ ...initialState, paymentIsOpen: true });
     };
 
-    const handleSetProduct = (productId, card, e) => {
-        e.preventDefault();
-        if (e.target.tagName == "BUTTON") return;
+    const handleSetProduct = (event, card, thumbnailUrlArr) => {
+        event.preventDefault();
+        if (event.target.tagName === "BUTTON") return;
 
         setState({ ...initialState, productDetailIsOpen: true });
         setProductCard(card);
+        setTetthumbnailUrlArr(thumbnailUrlArr);
     };
 
     return (
@@ -104,6 +107,7 @@ const Home = () => {
                     handleSetPayment={handleSetPayment}
                     handleSetProduct={handleSetProduct}
                     productCard={productCard}
+                    thumbnailUrlArr={thumbnailUrlArr}
                 />
             }
         </div>

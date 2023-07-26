@@ -18,6 +18,7 @@ const Header = ({ handleSetCart, handleSetLogin, handleSetContainer }) => {
 
     useEffect(() => {
         if (window.innerWidth <= 795) handleToggleMenu();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const [searchItems, setSearchItems] = useState([]);

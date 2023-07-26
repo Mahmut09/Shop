@@ -10,17 +10,17 @@ const Menu = ({ handleSetCart, handleSetLogin, handleSetContainer }) => {
 
     const URL = useSelector(state => state.URL);
 
-    const getData = async () => {
-        const res = await fetch(URL + "products/category", {
-            method: "GET",
-        });
-        if (!res.ok) {
-            throw new Error("Error");
-        }
-        return await res.json();
-    };
-
     useEffect(() => {
+        const getData = async () => {
+            const res = await fetch(URL + "products/category", {
+                method: "GET",
+            });
+            if (!res.ok) {
+                throw new Error("Error");
+            }
+            return await res.json();
+        };
+
         const fetchData = async () => {
             try {
                 const data = await getData();
@@ -31,7 +31,7 @@ const Menu = ({ handleSetCart, handleSetLogin, handleSetContainer }) => {
         };
 
         fetchData();
-    }, []);
+    }, [URL]);
 
     return (
         <div className={Styles.menu}>

@@ -1,0 +1,129 @@
+.container {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container h3 {
+    font-size: 28px;
+    text-transform: capitalize;
+}
+
+.product {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+    width: 75%;
+}
+
+.images {
+    flex: 2 1;
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.images>img {
+    width: 100%;
+    border-radius: 8px;
+    aspect-ratio: 4/3;
+}
+
+.imagesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.imagesList > img {
+    width: 84px;
+    aspect-ratio: 15/11;
+    cursor: pointer;
+}
+
+.description {
+    flex: 1 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 50px;
+}
+
+.description span {
+    font-size: 34px;
+    font-weight: bold;
+    flex: 1 1;
+}
+
+.description button {
+    border: 2px solid var(--sub-color-second);
+    padding: 8px;
+    width: 45%;
+    background-color: var(--main-color);
+    color: #fff;
+    font-size: 1.5em;
+    border-radius: 7px;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+.description button:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.description p {
+    font-size: 1.2em;
+    line-height: 1.4em;
+}
+
+
+@media screen and (max-width: 1430px) {
+    .product {
+        width: 95%;
+    }
+
+    .images {
+        min-width: 300px;
+    }
+
+    .description {
+        gap: 10px;
+    }
+
+    .description button {
+        font-size: 1em;
+        width: 65%;
+    }
+
+    .description span {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 795px) {
+    .product {
+        width: 95%;
+        margin: auto;
+    }
+
+    .images {
+        min-width: 100%;
+    }
+
+    .description {
+        gap: 15px;
+    }
+
+    .description span {
+        font-size: 26px;
+    }
+
+    .description button {
+        width: 100%;
+        font-size: 1.1em;
+    }
+}

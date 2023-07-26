@@ -3,13 +3,13 @@ import Styles from './GoodsCard.module.css'
 import { Link } from 'react-router-dom'
 
 
-const GoodsCard = ({ id, thumbnailUrl, articule, title, price, addToCart, description, handleProductClick }) => {
+const GoodsCard = ({ id, thumbnailUrlArr, articule, title, price, addToCart, description, handleProductClick }) => {
 
     const card = {
         id,
         title,
         description,
-        thumbnailUrl: thumbnailUrl ? thumbnailUrl[0].url : "./no-image.png",
+        thumbnailUrl: thumbnailUrlArr ? thumbnailUrlArr[0].url : "./no-image.png",
         price: price,
     };
 
@@ -17,7 +17,7 @@ const GoodsCard = ({ id, thumbnailUrl, articule, title, price, addToCart, descri
         <Link 
             className={Styles.card} 
             to={`/product/${id}`}
-            onClick={e => handleProductClick(id, card, e)}
+            onClick={event => handleProductClick(event, card, thumbnailUrlArr)}
         >
             <div className={Styles.cardImage}>
                 <img src={card.thumbnailUrl} alt={title} />

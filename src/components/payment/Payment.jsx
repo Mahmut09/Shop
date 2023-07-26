@@ -23,7 +23,7 @@ const Payment = () => {
         })
             .then((res) => res.json())
             .then((data) => setClientSecret(data.client_secret));
-    }, []);
+    }, [URL, accessToken]);
 
     const appearance = {
         theme: 'stripe',

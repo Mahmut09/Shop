@@ -9,12 +9,12 @@ import Styles from "./Container.module.css";
 import { useSelector } from "react-redux";
 import Payment from "../payment/Payment";
 import ProductDetail from "../product-detail/ProductDetail";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
-const Container = ({ containerIsOpen, cartIsOpen, loginIsOpen, aboutIsOpen, contactsIsOpen, paymentIsOpen, selectedProductIsOpen, handleSetCart, handleSetLogin, handleSetContainer, handleSetPayment, handleSetProduct, productCard }) => {
+const Container = ({ containerIsOpen, cartIsOpen, loginIsOpen, aboutIsOpen, contactsIsOpen, paymentIsOpen, selectedProductIsOpen, handleSetCart, handleSetLogin, handleSetContainer, handleSetPayment, handleSetProduct, productCard, thumbnailUrlArr }) => {
 
 	const menuIsOpen = useSelector(state => state.categoryIsOpen);
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 
 	// const handleProductClick = (productId, card) => {
 	// 	// You can use the productId to navigate to the product details page
@@ -40,7 +40,10 @@ const Container = ({ containerIsOpen, cartIsOpen, loginIsOpen, aboutIsOpen, cont
 			{aboutIsOpen && <About />}
 			{contactsIsOpen && <Contacts />}
 			{selectedProductIsOpen && (
-				<ProductDetail product={productCard} />
+				<ProductDetail 
+					product={productCard}
+					thumbnailUrlArr={thumbnailUrlArr}
+				/>
 			)}
 		</div>
 	);
